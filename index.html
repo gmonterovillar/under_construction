@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoBe Dent - Mantenimiento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 28px;
+            font-weight: 300;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4A90E2, #50E3C2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .logo-text {
+            color: #4A90E2;
+        }
+
+        .logo-text-light {
+            color: #50E3C2;
+        }
+
+        .btn-area-cliente {
+            background: #4A90E2;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-area-cliente:hover {
+            background: #357ABD;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #4A90E2;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 42px;
+            color: #333;
+            font-weight: 300;
+            margin-bottom: 50px;
+        }
+
+        /* Notification Box */
+        .notification-box {
+            background: #F5F8FA;
+            border-radius: 20px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .notification-content h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .notification-content p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .email-form {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            position: relative;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .email-form input::placeholder {
+            color: #999;
+        }
+
+        .email-form button {
+            background: #4A90E2;
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .email-form button:hover {
+            background: #357ABD;
+        }
+
+        .arrow-indicator {
+            color: #4A90E2;
+            font-size: 40px;
+            position: absolute;
+            right: -30px;
+            top: -20px;
+        }
+
+        .notification-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #E8F4F8, #F0F0F0);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 60px 0;
+        }
+
+        .contact-section h2 {
+            text-align: center;
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 14px 0;
+            border: none;
+            border-bottom: 1px solid #D0D0D0;
+            font-size: 14px;
+            font-family: inherit;
+            background: transparent;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #333;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .required-text {
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .privacy-link {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+        }
+
+        .btn-submit {
+            background: #4A90E2;
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .btn-submit:hover {
+            background: #357ABD;
+        }
+
+        /* Call Section */
+        .call-section {
+            background: #F5F8FA;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 60px auto;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .call-section p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .call-section .phone {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .call-arrow {
+            color: #4A90E2;
+            font-size: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background: #4A90E2;
+            color: white;
+            padding: 30px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .notification-box {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1,
+            .hero p {
+                font-size: 28px;
+            }
+
+            .contact-section h2 {
+                font-size: 36px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .call-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <div class="logo-icon">🦷</div>
+                <div>
+                    <span class="logo-text">GoBe</span>
+                    <span class="logo-text-light">Dent</span>
+                </div>
+            </div>
+            <a href="#" class="btn-area-cliente">
+                <span>👤</span>
+                Área cliente
+            </a>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Estamos trabajando en nuestra tienda online</h1>
+            <p>muy pronto estaremos de vuelta.</p>
+        </section>
+
+        <!-- Notification Box -->
+        <div class="notification-box">
+            <div class="notification-content">
+                <h2>¿Quieres que te avisemos cuando este lista la tienda?</h2>
+                <p>Se uno de los primeros en enterarte y descubre todas las promociones y descuentos disponibles en nuestra tienda online.</p>
+                <div class="email-form">
+                    <input type="email" placeholder="Correo electrónico">
+                    <button>¡Avísame!</button>
+                    <span class="arrow-indicator">↷</span>
+                </div>
+            </div>
+            <div class="notification-image">
+                🏗️
+            </div>
+        </div>
+
+        <!-- Contact Form Section -->
+        <section class="contact-section">
+            <h2>Hablemos</h2>
+
+            <form class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="*Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Apellidos">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="email" placeholder="*Correo electrónico" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="*Teléfono" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="*Empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">*Clínica o Laboratorio</option>
+                            <option value="clinica">Clínica</option>
+                            <option value="laboratorio">Laboratorio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <textarea placeholder="*Mensaje" required></textarea>
+                </div>
+
+                <p class="required-text">Acuerdo sobre el uso de los datos*</p>
+
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" required>
+                        <span>Acepto que mis datos sean procesados de acuerdo con los términos y condiciones del aviso de privacidad.</span>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox">
+                        <span>Acepto recibir otras comunicaciones de GoBe Dent.</span>
+                    </label>
+                </div>
+
+                <p style="font-size: 13px; color: #666; margin-top: 10px;">
+                    Lea nuestro <a href="#" class="privacy-link">aviso de privacidad</a>.
+                </p>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Call Section -->
+        <div class="call-section">
+            <span class="call-arrow">↷</span>
+            <p>O si lo prefieres llámanos al <span class="phone">622 359 525</span></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>GoBe Dent | Copyright 2025 | CIF 0123456789 | Madrid</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Política de Cookies</a>
+                    <a href="#">Legal</a>
+                </div>
+                <div class="social-links">
+                    <a href="#">📱</a>
+                    <a href="#">💼</a>
+                    <a href="#">📷</a>
+                    <a href="#">👍</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
