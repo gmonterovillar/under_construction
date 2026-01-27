@@ -19,6 +19,8 @@
             color: #1D1D1F;
             line-height: 1.6;
             background: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
@@ -39,53 +41,44 @@
             height: 56px;
         }
 
-        .btn-area-cliente {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding: 8px 12px;
-            gap: 4px;
-            background: #5295D3;
-            color: #FFFFFF;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 12px;
-            line-height: 20px;
-            letter-spacing: 0.25px;
-            min-width: 32px;
-            height: 36px;
-        }
-
-        .btn-area-cliente:hover {
-            opacity: 0.9;
-        }
-
         /* Hero Section */
         .hero {
-            padding: 100px 0 60px;
+            padding: 100px 0 120px;
         }
 
         .hero h1 {
-            font-weight: 500;
+
+            position: absolute;
+            width: 1260px;
+            height: 116px;
+            left: calc(50% - 1260px/2);
+            top: 236px;
+
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
             font-size: 40px;
             line-height: 56px;
+            /* or 140% */
             letter-spacing: -0.576px;
+
             color: #5295D3;
-            margin-bottom: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+
         }
 
         /* Notification Box */
         .notification-box {
             background: #EFF5FB;
             border-radius: 24px;
-            padding: 56px 60px;
+            padding: 20px 60px;
             display: grid;
             grid-template-columns: 1fr 458px;
             gap: 60px;
             align-items: center;
-            margin-bottom: 80px;
+            margin-bottom: 10px;
             position: relative;
         }
 
@@ -133,7 +126,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            padding: 8px 16px;
+            padding: 16px 32px;
             gap: 8px;
             background: #5295D3;
             color: #FFFFFF;
@@ -141,7 +134,7 @@
             border-radius: 999px;
             cursor: pointer;
             font-family: 'Poppins';
-            font-weight: 500;
+            font-weight: 400;
             font-size: 15px;
             line-height: 20px;
             white-space: nowrap;
@@ -155,13 +148,16 @@
 
         .arrow-indicator {
             position: absolute;
-            right: -60px;
-            top: -30px;
-            width: 40px;
-            height: 40px;
-            color: #5295D3;
-            font-size: 36px;
-            transform: rotate(135deg);
+            right: -10%;
+            top: -120%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .arrow-indicator img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .notification-image {
@@ -253,11 +249,18 @@
             padding-right: 30px;
         }
 
+        .checkbox-section {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 30px;
+            margin: 41.25px 0 0;
+            align-items: start;
+        }
+
         .checkbox-group {
             display: flex;
             flex-direction: column;
             gap: 21.6px;
-            margin: 41.25px 0 0;
         }
 
         .checkbox-label {
@@ -285,12 +288,17 @@
             font-size: 13px;
             line-height: 22px;
             color: #000000;
+            margin-top: 60px;
             margin-bottom: 3.59px;
         }
 
         .privacy-link {
-            color: #1D1D1F;
+            color: #5295D3;
             text-decoration: none;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
         }
 
         .privacy-text {
@@ -298,13 +306,17 @@
             font-size: 13px;
             line-height: 22px;
             color: #1D1D1F;
-            margin-top: 10px;
+            margin-top: 30px;
         }
 
         .form-actions {
             display: flex;
-            justify-content: flex-end;
-            margin-top: 67px;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-actions .privacy-text {
+            margin-top: 0;
         }
 
         .btn-submit {
@@ -312,7 +324,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            padding: 8px 16px;
+            padding: 8px 40px;
             gap: 8px;
             background: #5295D3;
             color: #FFFFFF;
@@ -356,15 +368,21 @@
         }
 
         .call-section .phone {
-            font-weight: 400;
+            font-weight: 700;
         }
 
         .call-arrow {
-            color: #5295D3;
-            font-size: 36px;
-            transform: matrix(-1, -0.01, -0.01, 1, 0, 0);
             position: absolute;
-            left: 210px;
+            left: 22%;
+            top: 17%;
+            width: 70px;
+            height: 70px;
+        }
+
+        .call-arrow img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         /* Footer */
@@ -425,7 +443,7 @@
 
             .notification-box {
                 grid-template-columns: 1fr;
-                padding: 40px 30px;
+                padding: 20px 30px;
             }
 
             .notification-image {
@@ -501,17 +519,11 @@
             <div class="logo">
                 <img src="logo.png" alt="GoBe Dent">
             </div>
-            <a href="#" class="btn-area-cliente">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8ZM8 9.5C5.99 9.5 2 10.51 2 12.5V14H14V12.5C14 10.51 10.01 9.5 8 9.5Z" fill="white"/>
-                </svg>
-                Área cliente
-            </a>
         </header>
 
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Estamos trabajando en nuestra tienda online<br>muy pronto estaremos de vuelta.</h1>
+            <h1><span style="font-weight: 500;">Estamos trabajando en nuestra tienda online</span><br><span style="color: #1D1D1F;">muy pronto estaremos de vuelta.</span></h1>
         </section>
 
         <!-- Notification Box -->
@@ -522,7 +534,7 @@
                 <div class="email-form">
                     <input type="email" placeholder="Correo electrónico">
                     <button>¡Avísame!</button>
-                    <span class="arrow-indicator">↷</span>
+                    <span class="arrow-indicator"><img src="arrow_1.png" alt=""></span>
                 </div>
             </div>
             <div class="notification-image">
@@ -572,22 +584,20 @@
 
                 <p class="required-text">Acuerdo sobre el uso de los datos*</p>
 
-                <div class="checkbox-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" required>
-                        <span>Acepto que mis datos sean procesados de acuerdo con los términos y condiciones del aviso de privacidad.</span>
-                    </label>
-                    <label class="checkbox-label">
-                        <input type="checkbox">
-                        <span>Acepto recibir otras comunicaciones de GoBe Dent.</span>
-                    </label>
-                </div>
-
-                <p class="privacy-text">
-                    Lee nuestro <a href="#" class="privacy-link">aviso de privacidad</a>.
-                </p>
-
-                <div class="form-actions">
+                <div class="checkbox-section">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>Acepto que mis datos sean procesados de acuerdo con los términos y condiciones del aviso de privacidad.</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox">
+                            <span>Acepto recibir otras comunicaciones de GoBe Dent.</span>
+                        </label>
+                        <p class="privacy-text">
+                            Lee nuestro <a href="privacidad.html" class="privacy-link">aviso de privacidad</a>.
+                        </p>
+                    </div>
                     <button type="submit" class="btn-submit">Enviar</button>
                 </div>
             </form>
@@ -595,7 +605,7 @@
 
         <!-- Call Section -->
         <div class="call-section">
-            <span class="call-arrow">↷</span>
+            <span class="call-arrow"><img src="arrow_2.png" alt=""></span>
             <p>O si lo prefieres llámanos al <span class="phone">622 359 525</span></p>
         </div>
     </div>
@@ -605,27 +615,23 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <p>GoBe Dent | Copyright 2025 | CIF 01234567890 | Madrid</p>
+                    <p>GoBe Dent Components S.L. | Copyright 2026</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#">Politica de privacidad</a> |
-                    <a href="#">Politica de Cookies</a> |
+                    <a href="privacidad.html">Politica de privacidad</a> |
+                    <!-- <a href="#">Politica de Cookies</a> | -->
                     <a href="#">Legal</a>
                 </div>
                 <div class="social-links">
-                    <a href="#" aria-label="Instagram">
+                    <a href="https://api.whatsapp.com/send/?phone=34622359525&text=Hola%2C+me+gustaría+obtener+más+información&type=phone_number&app_absent=0" aria-label="WhatsApp">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 1.62C11.4 1.62 11.7 1.63 12.6 1.67C13.4 1.71 13.8 1.84 14.1 1.95C14.5 2.09 14.8 2.27 15.1 2.56C15.4 2.86 15.6 3.16 15.7 3.56C15.8 3.86 15.9 4.26 16 5.06C16 5.96 16 6.26 16 8.66C16 11.06 16 11.36 16 12.26C15.96 13.06 15.83 13.46 15.72 13.76C15.58 14.16 15.4 14.46 15.11 14.76C14.81 15.06 14.51 15.28 14.11 15.39C13.81 15.5 13.41 15.61 12.61 15.66C11.71 15.7 11.41 15.7 9.01 15.7C6.61 15.7 6.31 15.7 5.41 15.66C4.61 15.62 4.21 15.49 3.91 15.38C3.51 15.24 3.21 15.06 2.91 14.77C2.61 14.47 2.39 14.17 2.28 13.77C2.17 13.47 2.06 13.07 2.01 12.27C1.97 11.37 1.97 11.07 1.97 8.67C1.97 6.27 1.97 5.97 2.01 5.07C2.05 4.27 2.18 3.87 2.29 3.57C2.43 3.17 2.61 2.87 2.9 2.57C3.2 2.27 3.5 2.05 3.9 1.94C4.2 1.83 4.6 1.72 5.4 1.67C6.3 1.63 6.6 1.62 9 1.62ZM9 0C6.56 0 6.24 0.01 5.32 0.05C4.41 0.09 3.79 0.22 3.25 0.42C2.69 0.63 2.22 0.91 1.75 1.38C1.28 1.85 1 2.32 0.79 2.88C0.59 3.42 0.46 4.04 0.42 4.95C0.38 5.87 0.37 6.19 0.37 8.63C0.37 11.07 0.38 11.39 0.42 12.31C0.46 13.22 0.59 13.84 0.79 14.38C1 14.94 1.28 15.41 1.75 15.88C2.22 16.35 2.69 16.63 3.25 16.84C3.79 17.04 4.41 17.17 5.32 17.21C6.24 17.25 6.56 17.26 9 17.26C11.44 17.26 11.76 17.25 12.68 17.21C13.59 17.17 14.21 17.04 14.75 16.84C15.31 16.63 15.78 16.35 16.25 15.88C16.72 15.41 17 14.94 17.21 14.38C17.41 13.84 17.54 13.22 17.58 12.31C17.62 11.39 17.63 11.07 17.63 8.63C17.63 6.19 17.62 5.87 17.58 4.95C17.54 4.04 17.41 3.42 17.21 2.88C17 2.32 16.72 1.85 16.25 1.38C15.78 0.91 15.31 0.63 14.75 0.42C14.21 0.22 13.59 0.09 12.68 0.05C11.76 0.01 11.44 0 9 0Z" fill="white"/>
-                            <path d="M9 4.38C6.45 4.38 4.38 6.45 4.38 9C4.38 11.55 6.45 13.62 9 13.62C11.55 13.62 13.62 11.55 13.62 9C13.62 6.45 11.55 4.38 9 4.38ZM9 12C7.34 12 6 10.66 6 9C6 7.34 7.34 6 9 6C10.66 6 12 7.34 12 9C12 10.66 10.66 12 9 12Z" fill="white"/>
-                            <circle cx="13.87" cy="4.13" r="0.98" fill="white"/>
+                            <path d="M15.3 2.65C13.65 0.99 11.4 0.09 9.05 0.09C4.2 0.09 0.25 4.04 0.25 8.89C0.25 10.42 0.65 11.92 1.42 13.24L0.18 18L5.04 16.78C6.31 17.48 7.76 17.85 9.05 17.85C13.9 17.85 17.85 13.9 17.85 9.05C17.85 6.7 16.95 4.31 15.3 2.65ZM9.05 16.37C7.88 16.37 6.73 16.04 5.73 15.43L5.5 15.29L2.38 16.09L3.19 13.03L3.04 12.79C2.36 11.75 2 10.54 2 9.05C2 4.96 5.14 1.82 9.23 1.82C11.23 1.82 13.1 2.6 14.5 4C15.9 5.4 16.68 7.27 16.68 9.27C16.5 13.18 13.36 16.37 9.05 16.37ZM13.18 10.9C12.95 10.79 11.87 10.26 11.67 10.19C11.47 10.12 11.32 10.09 11.17 10.32C11.02 10.55 10.62 11.04 10.49 11.19C10.36 11.34 10.23 11.36 10 11.25C9.77 11.14 9.05 10.9 8.19 10.13C7.53 9.53 7.08 8.8 6.95 8.57C6.82 8.34 6.94 8.21 7.05 8.1C7.15 8 7.28 7.84 7.39 7.71C7.5 7.58 7.54 7.49 7.61 7.34C7.68 7.19 7.65 7.06 7.59 6.95C7.54 6.84 7.08 5.76 6.9 5.3C6.72 4.86 6.54 4.92 6.41 4.92H6.01C5.86 4.92 5.63 4.97 5.43 5.2C5.23 5.43 4.66 5.96 4.66 7.04C4.66 8.12 5.45 9.16 5.56 9.31C5.67 9.46 7.08 11.64 9.23 12.59C9.75 12.82 10.15 12.95 10.47 13.05C10.99 13.21 11.47 13.18 11.85 13.13C12.27 13.07 13.14 12.61 13.32 12.11C13.5 11.61 13.5 11.18 13.43 11.08C13.36 10.98 13.41 11.01 13.18 10.9Z" fill="white"/>
                         </svg>
                     </a>
-                    <a href="#" aria-label="LinkedIn">
-                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17.04 0H1.96C0.88 0 0 0.81 0 1.81V16.19C0 17.19 0.88 18 1.96 18H17.04C18.12 18 19 17.19 19 16.19V1.81C19 0.81 18.12 0 17.04 0ZM5.67 15.3H2.83V6.75H5.67V15.3ZM4.25 5.58C3.35 5.58 2.62 4.85 2.62 3.95C2.62 3.05 3.35 2.32 4.25 2.32C5.15 2.32 5.88 3.05 5.88 3.95C5.88 4.85 5.15 5.58 4.25 5.58ZM16.17 15.3H13.33V11.14C13.33 10.08 13.31 8.71 11.84 8.71C10.35 8.71 10.13 9.88 10.13 11.06V15.3H7.29V6.75H10.01V8H10.04C10.41 7.32 11.31 6.6 12.64 6.6C15.51 6.6 16.17 8.52 16.17 10.99V15.3Z" fill="white"/>
-                        </svg>
+                    <a href="https://www.linkedin.com/company/gobedent" aria-label="LinkedIn">
+                        <img src="linkedin.png" alt="LinkedIn" width="18" height="18">
                     </a>
-                    <a href="#" aria-label="TikTok">
+                    <!-- <a href="#" aria-label="TikTok">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.5 0H9.5V12.3C9.5 13.8 8.3 15 6.8 15C5.3 15 4.1 13.8 4.1 12.3C4.1 10.8 5.3 9.7 6.7 9.6V6.6C3.7 6.7 1.3 9.2 1.3 12.3C1.3 15.4 3.8 18 6.8 18C9.9 18 12.4 15.5 12.4 12.3V6C13.7 6.9 15.3 7.5 17 7.5V4.5C14.4 4.4 12.5 2.5 12.5 0Z" fill="white"/>
                         </svg>
@@ -634,7 +640,7 @@
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 9C18 4.03 13.97 0 9 0C4.03 0 0 4.03 0 9C0 13.5 3.29 17.25 7.59 17.93V11.6H5.31V9H7.59V7.02C7.59 4.77 8.94 3.52 10.96 3.52C11.93 3.52 12.94 3.69 12.94 3.69V5.9H11.83C10.73 5.9 10.41 6.57 10.41 7.26V9H12.84L12.46 11.6H10.41V17.93C14.71 17.25 18 13.5 18 9Z" fill="white"/>
                         </svg>
-                    </a>
+                    </a> -->
                 </div>
             </div>
         </div>
