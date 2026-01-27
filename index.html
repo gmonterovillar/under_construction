@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoBe Dent - Mantenimiento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,112 +15,94 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            color: #333;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1D1D1F;
             line-height: 1.6;
+            background: #FFFFFF;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 90px;
         }
 
         /* Header */
         header {
-            padding: 20px 0;
+            padding: 100px 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 28px;
-            font-weight: 300;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #4A90E2, #50E3C2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
-
-        .logo-text {
-            color: #4A90E2;
-        }
-
-        .logo-text-light {
-            color: #50E3C2;
+        .logo img {
+            height: 56px;
         }
 
         .btn-area-cliente {
-            background: #4A90E2;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 14px;
             display: flex;
+            flex-direction: row;
+            justify-content: center;
             align-items: center;
-            gap: 8px;
+            padding: 8px 12px;
+            gap: 4px;
+            background: #5295D3;
+            color: #FFFFFF;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 20px;
+            letter-spacing: 0.25px;
+            min-width: 32px;
+            height: 36px;
         }
 
         .btn-area-cliente:hover {
-            background: #357ABD;
+            opacity: 0.9;
         }
 
         /* Hero Section */
         .hero {
-            padding: 60px 0;
+            padding: 100px 0 60px;
         }
 
         .hero h1 {
-            font-size: 42px;
-            color: #4A90E2;
-            font-weight: 300;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 42px;
-            color: #333;
-            font-weight: 300;
-            margin-bottom: 50px;
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 56px;
+            letter-spacing: -0.576px;
+            color: #5295D3;
+            margin-bottom: 0;
         }
 
         /* Notification Box */
         .notification-box {
-            background: #F5F8FA;
-            border-radius: 20px;
-            padding: 60px;
+            background: #EFF5FB;
+            border-radius: 24px;
+            padding: 56px 60px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 458px;
             gap: 60px;
             align-items: center;
             margin-bottom: 80px;
+            position: relative;
         }
 
         .notification-content h2 {
-            font-size: 32px;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 400;
+            font-weight: 500;
+            font-size: 40px;
+            line-height: 48px;
+            color: #1D1D1F;
+            margin-bottom: 24px;
         }
 
         .notification-content p {
+            font-weight: 400;
             font-size: 16px;
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
+            line-height: 32px;
+            color: #1D1D1F;
+            margin-bottom: 32px;
         }
 
         .email-form {
@@ -128,50 +113,71 @@
         }
 
         .email-form input {
-            flex: 1;
-            padding: 14px 20px;
-            border: 1px solid #E0E0E0;
+            width: 400px;
+            height: 44px;
+            padding: 13px 24px;
+            border: none;
             border-radius: 8px;
-            font-size: 14px;
-            background: white;
+            font-family: 'Arial';
+            font-size: 16px;
+            line-height: 18px;
+            background: #FFFFFF;
         }
 
         .email-form input::placeholder {
-            color: #999;
+            color: #757575;
         }
 
         .email-form button {
-            background: #4A90E2;
-            color: white;
-            padding: 14px 28px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 8px;
+            background: #5295D3;
+            color: #FFFFFF;
             border: none;
-            border-radius: 25px;
+            border-radius: 999px;
             cursor: pointer;
-            font-size: 14px;
+            font-family: 'Poppins';
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 20px;
             white-space: nowrap;
+            min-width: 53px;
+            height: 44px;
         }
 
         .email-form button:hover {
-            background: #357ABD;
+            opacity: 0.9;
         }
 
         .arrow-indicator {
-            color: #4A90E2;
-            font-size: 40px;
             position: absolute;
-            right: -30px;
-            top: -20px;
+            right: -60px;
+            top: -30px;
+            width: 40px;
+            height: 40px;
+            color: #5295D3;
+            font-size: 36px;
+            transform: rotate(135deg);
         }
 
         .notification-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #E8F4F8, #F0F0F0);
+            width: 458px;
+            height: 336px;
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 100px;
+            overflow: hidden;
+        }
+
+        .notification-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Contact Form Section */
@@ -181,22 +187,23 @@
 
         .contact-section h2 {
             text-align: center;
-            font-size: 48px;
-            font-weight: 400;
-            margin-bottom: 60px;
-            color: #333;
+            font-weight: 500;
+            font-size: 64px;
+            line-height: 109px;
+            margin-bottom: 89px;
+            color: #1D1D1F;
         }
 
         .contact-form {
-            max-width: 800px;
+            max-width: 1026px;
             margin: 0 auto;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 54px;
+            margin-bottom: 41.25px;
         }
 
         .form-group {
@@ -211,123 +218,172 @@
         .form-group input,
         .form-group select,
         .form-group textarea {
-            padding: 14px 0;
+            padding: 0 0 14px 0;
             border: none;
-            border-bottom: 1px solid #D0D0D0;
-            font-size: 14px;
-            font-family: inherit;
+            border-bottom: 1px solid #000000;
+            font-family: 'Poppins';
+            font-size: 19px;
+            line-height: 27px;
+            font-weight: 400;
             background: transparent;
+            color: #1D1D1F;
         }
 
         .form-group input::placeholder,
+        .form-group select,
         .form-group textarea::placeholder {
-            color: #333;
+            color: #1D1D1F;
+            font-family: 'Poppins';
+            font-size: 19px;
+            line-height: 28px;
         }
 
         .form-group textarea {
-            min-height: 100px;
+            min-height: 121px;
             resize: vertical;
+            padding-top: 10px;
         }
 
         .form-group select {
             cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='13' viewBox='0 0 24 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 2L12 10L22 2' stroke='%2386868B' stroke-width='1.41' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0 center;
+            padding-right: 30px;
         }
 
         .checkbox-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin: 30px 0;
+            gap: 21.6px;
+            margin: 41.25px 0 0;
         }
 
         .checkbox-label {
             display: flex;
             align-items: flex-start;
             gap: 10px;
+            font-family: 'Poppins';
             font-size: 13px;
-            color: #666;
+            line-height: 22px;
+            color: #1D1D1F;
         }
 
         .checkbox-label input[type="checkbox"] {
-            margin-top: 3px;
-            width: 18px;
-            height: 18px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
+            margin: 0;
+            flex-shrink: 0;
+            border: 1px solid #1D1D1F;
         }
 
         .required-text {
+            font-family: 'Poppins';
+            font-weight: 500;
             font-size: 13px;
-            color: #333;
-            margin-bottom: 20px;
+            line-height: 22px;
+            color: #000000;
+            margin-bottom: 3.59px;
         }
 
         .privacy-link {
-            color: #4A90E2;
+            color: #1D1D1F;
             text-decoration: none;
+        }
+
+        .privacy-text {
+            font-family: 'Poppins';
+            font-size: 13px;
+            line-height: 22px;
+            color: #1D1D1F;
+            margin-top: 10px;
         }
 
         .form-actions {
             display: flex;
             justify-content: flex-end;
-            margin-top: 30px;
+            margin-top: 67px;
         }
 
         .btn-submit {
-            background: #4A90E2;
-            color: white;
-            padding: 14px 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 8px 16px;
+            gap: 8px;
+            background: #5295D3;
+            color: #FFFFFF;
             border: none;
-            border-radius: 25px;
+            border-radius: 999px;
             cursor: pointer;
+            font-family: 'Poppins';
+            font-weight: 500;
             font-size: 15px;
+            line-height: 20px;
+            min-width: 53px;
+            height: 44px;
         }
 
         .btn-submit:hover {
-            background: #357ABD;
+            opacity: 0.9;
         }
 
         /* Call Section */
         .call-section {
-            background: #F5F8FA;
-            padding: 40px;
-            border-radius: 15px;
+            background: #EFF5FB;
+            padding: 48px 60px;
+            border-radius: 24px;
             text-align: center;
-            margin: 60px auto;
-            max-width: 900px;
+            margin: 60px 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
+            position: relative;
+            height: 144px;
         }
 
         .call-section p {
-            font-size: 18px;
-            color: #333;
+            font-family: 'Poppins';
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 48px;
+            color: #1D1D1F;
+            text-align: center;
         }
 
         .call-section .phone {
-            font-weight: bold;
-            color: #333;
+            font-weight: 400;
         }
 
         .call-arrow {
-            color: #4A90E2;
-            font-size: 30px;
+            color: #5295D3;
+            font-size: 36px;
+            transform: matrix(-1, -0.01, -0.01, 1, 0, 0);
+            position: absolute;
+            left: 210px;
         }
 
         /* Footer */
         footer {
-            background: #4A90E2;
-            color: white;
-            padding: 30px 0;
+            background: #5295D3;
+            color: #FFFFFF;
+            padding: 22px 0;
             margin-top: 80px;
+            height: 66px;
         }
 
         .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            font-family: 'Poppins';
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 22px;
         }
 
         .footer-links {
@@ -336,7 +392,7 @@
         }
 
         .footer-links a {
-            color: white;
+            color: #FFFFFF;
             text-decoration: none;
         }
 
@@ -346,33 +402,65 @@
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 16px;
+            align-items: center;
         }
 
         .social-links a {
-            color: white;
+            color: #FFFFFF;
             text-decoration: none;
-            font-size: 20px;
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 60px;
+            }
+
             .notification-box {
                 grid-template-columns: 1fr;
                 padding: 40px 30px;
+            }
+
+            .notification-image {
+                width: 100%;
+                height: 280px;
+            }
+
+            .arrow-indicator {
+                right: 20px;
+                top: -20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 30px;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
             }
 
-            .hero h1,
-            .hero p {
+            .hero h1 {
                 font-size: 28px;
+                line-height: 40px;
             }
 
             .contact-section h2 {
                 font-size: 36px;
+                line-height: 48px;
+            }
+
+            .notification-content h2 {
+                font-size: 28px;
+                line-height: 36px;
             }
 
             .footer-content {
@@ -383,6 +471,25 @@
 
             .call-section {
                 flex-direction: column;
+                height: auto;
+                padding: 30px 20px;
+            }
+
+            .call-arrow {
+                position: static;
+            }
+
+            .email-form {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .email-form input {
+                width: 100%;
+            }
+
+            .arrow-indicator {
+                display: none;
             }
         }
     </style>
@@ -392,18 +499,19 @@
         <!-- Header -->
         <header>
             <div class="logo">
-                <img src="logo.png" alt="GoBe Dent" style="height: 50px;">
+                <img src="logo.png" alt="GoBe Dent">
             </div>
             <a href="#" class="btn-area-cliente">
-                <span>👤</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8ZM8 9.5C5.99 9.5 2 10.51 2 12.5V14H14V12.5C14 10.51 10.01 9.5 8 9.5Z" fill="white"/>
+                </svg>
                 Área cliente
             </a>
         </header>
 
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Estamos trabajando en nuestra tienda online</h1>
-            <p>muy pronto estaremos de vuelta.</p>
+            <h1>Estamos trabajando en nuestra tienda online<br>muy pronto estaremos de vuelta.</h1>
         </section>
 
         <!-- Notification Box -->
@@ -418,7 +526,7 @@
                 </div>
             </div>
             <div class="notification-image">
-                <img src="crane.png" alt="Under Construction" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                <img src="crane.png" alt="Under Construction">
             </div>
         </div>
 
@@ -475,8 +583,8 @@
                     </label>
                 </div>
 
-                <p style="font-size: 13px; color: #666; margin-top: 10px;">
-                    Lea nuestro <a href="#" class="privacy-link">aviso de privacidad</a>.
+                <p class="privacy-text">
+                    Lee nuestro <a href="#" class="privacy-link">aviso de privacidad</a>.
                 </p>
 
                 <div class="form-actions">
@@ -497,18 +605,36 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <p>GoBe Dent | Copyright 2025 | CIF 0123456789 | Madrid</p>
+                    <p>GoBe Dent | Copyright 2025 | CIF 01234567890 | Madrid</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#">Política de privacidad</a>
-                    <a href="#">Política de Cookies</a>
+                    <a href="#">Politica de privacidad</a> |
+                    <a href="#">Politica de Cookies</a> |
                     <a href="#">Legal</a>
                 </div>
                 <div class="social-links">
-                    <a href="#">📱</a>
-                    <a href="#">💼</a>
-                    <a href="#">📷</a>
-                    <a href="#">👍</a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 1.62C11.4 1.62 11.7 1.63 12.6 1.67C13.4 1.71 13.8 1.84 14.1 1.95C14.5 2.09 14.8 2.27 15.1 2.56C15.4 2.86 15.6 3.16 15.7 3.56C15.8 3.86 15.9 4.26 16 5.06C16 5.96 16 6.26 16 8.66C16 11.06 16 11.36 16 12.26C15.96 13.06 15.83 13.46 15.72 13.76C15.58 14.16 15.4 14.46 15.11 14.76C14.81 15.06 14.51 15.28 14.11 15.39C13.81 15.5 13.41 15.61 12.61 15.66C11.71 15.7 11.41 15.7 9.01 15.7C6.61 15.7 6.31 15.7 5.41 15.66C4.61 15.62 4.21 15.49 3.91 15.38C3.51 15.24 3.21 15.06 2.91 14.77C2.61 14.47 2.39 14.17 2.28 13.77C2.17 13.47 2.06 13.07 2.01 12.27C1.97 11.37 1.97 11.07 1.97 8.67C1.97 6.27 1.97 5.97 2.01 5.07C2.05 4.27 2.18 3.87 2.29 3.57C2.43 3.17 2.61 2.87 2.9 2.57C3.2 2.27 3.5 2.05 3.9 1.94C4.2 1.83 4.6 1.72 5.4 1.67C6.3 1.63 6.6 1.62 9 1.62ZM9 0C6.56 0 6.24 0.01 5.32 0.05C4.41 0.09 3.79 0.22 3.25 0.42C2.69 0.63 2.22 0.91 1.75 1.38C1.28 1.85 1 2.32 0.79 2.88C0.59 3.42 0.46 4.04 0.42 4.95C0.38 5.87 0.37 6.19 0.37 8.63C0.37 11.07 0.38 11.39 0.42 12.31C0.46 13.22 0.59 13.84 0.79 14.38C1 14.94 1.28 15.41 1.75 15.88C2.22 16.35 2.69 16.63 3.25 16.84C3.79 17.04 4.41 17.17 5.32 17.21C6.24 17.25 6.56 17.26 9 17.26C11.44 17.26 11.76 17.25 12.68 17.21C13.59 17.17 14.21 17.04 14.75 16.84C15.31 16.63 15.78 16.35 16.25 15.88C16.72 15.41 17 14.94 17.21 14.38C17.41 13.84 17.54 13.22 17.58 12.31C17.62 11.39 17.63 11.07 17.63 8.63C17.63 6.19 17.62 5.87 17.58 4.95C17.54 4.04 17.41 3.42 17.21 2.88C17 2.32 16.72 1.85 16.25 1.38C15.78 0.91 15.31 0.63 14.75 0.42C14.21 0.22 13.59 0.09 12.68 0.05C11.76 0.01 11.44 0 9 0Z" fill="white"/>
+                            <path d="M9 4.38C6.45 4.38 4.38 6.45 4.38 9C4.38 11.55 6.45 13.62 9 13.62C11.55 13.62 13.62 11.55 13.62 9C13.62 6.45 11.55 4.38 9 4.38ZM9 12C7.34 12 6 10.66 6 9C6 7.34 7.34 6 9 6C10.66 6 12 7.34 12 9C12 10.66 10.66 12 9 12Z" fill="white"/>
+                            <circle cx="13.87" cy="4.13" r="0.98" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.04 0H1.96C0.88 0 0 0.81 0 1.81V16.19C0 17.19 0.88 18 1.96 18H17.04C18.12 18 19 17.19 19 16.19V1.81C19 0.81 18.12 0 17.04 0ZM5.67 15.3H2.83V6.75H5.67V15.3ZM4.25 5.58C3.35 5.58 2.62 4.85 2.62 3.95C2.62 3.05 3.35 2.32 4.25 2.32C5.15 2.32 5.88 3.05 5.88 3.95C5.88 4.85 5.15 5.58 4.25 5.58ZM16.17 15.3H13.33V11.14C13.33 10.08 13.31 8.71 11.84 8.71C10.35 8.71 10.13 9.88 10.13 11.06V15.3H7.29V6.75H10.01V8H10.04C10.41 7.32 11.31 6.6 12.64 6.6C15.51 6.6 16.17 8.52 16.17 10.99V15.3Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="TikTok">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.5 0H9.5V12.3C9.5 13.8 8.3 15 6.8 15C5.3 15 4.1 13.8 4.1 12.3C4.1 10.8 5.3 9.7 6.7 9.6V6.6C3.7 6.7 1.3 9.2 1.3 12.3C1.3 15.4 3.8 18 6.8 18C9.9 18 12.4 15.5 12.4 12.3V6C13.7 6.9 15.3 7.5 17 7.5V4.5C14.4 4.4 12.5 2.5 12.5 0Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 9C18 4.03 13.97 0 9 0C4.03 0 0 4.03 0 9C0 13.5 3.29 17.25 7.59 17.93V11.6H5.31V9H7.59V7.02C7.59 4.77 8.94 3.52 10.96 3.52C11.93 3.52 12.94 3.69 12.94 3.69V5.9H11.83C10.73 5.9 10.41 6.57 10.41 7.26V9H12.84L12.46 11.6H10.41V17.93C14.71 17.25 18 13.5 18 9Z" fill="white"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
