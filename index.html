@@ -532,10 +532,13 @@
                 <h2>¿Quieres que te avisemos cuando este lista la tienda?</h2>
                 <p>Se uno de los primeros en enterarte y descubre todas las promociones y descuentos disponibles en nuestra tienda online.</p>
                 <div class="email-form">
-                    <input type="email" placeholder="Correo electrónico">
-                    <button>¡Avísame!</button>
+                    <input type="email" id="newsletter-email" placeholder="Correo electrónico" required>
+                    <button type="button" id="newsletter-btn">¡Avísame!</button>
                     <span class="arrow-indicator"><img src="arrow_1.png" alt=""></span>
                 </div>
+                <p style="font-size: 12px; line-height: 18px; color: #1D1D1F; margin-top: 12px;">
+                    Al suscribirte aceptas nuestra <a href="privacidad.html" class="privacy-link" style="color: #5295D3; text-decoration: none;">política de privacidad</a>.
+                </p>
             </div>
             <div class="notification-image">
                 <img src="crane.png" alt="Under Construction">
@@ -546,31 +549,31 @@
         <section class="contact-section">
             <h2>Hablemos</h2>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form">
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="text" placeholder="*Nombre" required>
+                        <input type="text" id="contact-name" placeholder="*Nombre" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Apellidos">
+                        <input type="text" id="contact-surname" placeholder="Apellidos">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="email" placeholder="*Correo electrónico" required>
+                        <input type="email" id="contact-email" placeholder="*Correo electrónico" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" placeholder="*Teléfono" required>
+                        <input type="tel" id="contact-phone" placeholder="*Teléfono" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="text" placeholder="*Empresa" required>
+                        <input type="text" id="contact-company" placeholder="*Empresa" required>
                     </div>
                     <div class="form-group">
-                        <select required>
+                        <select id="contact-clinic-lab" required>
                             <option value="">*Clínica o Laboratorio</option>
                             <option value="clinica">Clínica</option>
                             <option value="laboratorio">Laboratorio</option>
@@ -579,7 +582,7 @@
                 </div>
 
                 <div class="form-group full-width">
-                    <textarea placeholder="*Mensaje" required></textarea>
+                    <textarea id="contact-message" placeholder="*Mensaje" required></textarea>
                 </div>
 
                 <p class="required-text">Acuerdo sobre el uso de los datos*</p>
@@ -587,11 +590,11 @@
                 <div class="checkbox-section">
                     <div class="checkbox-group">
                         <label class="checkbox-label">
-                            <input type="checkbox" required>
+                            <input type="checkbox" id="contact-accept-data" required>
                             <span>Acepto que mis datos sean procesados de acuerdo con los términos y condiciones del aviso de privacidad.</span>
                         </label>
                         <label class="checkbox-label">
-                            <input type="checkbox">
+                            <input type="checkbox" id="contact-accept-comunication">
                             <span>Acepto recibir otras comunicaciones de GoBe Dent.</span>
                         </label>
                         <p class="privacy-text">
@@ -645,5 +648,119 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Newsletter form handler
+        document.getElementById('newsletter-btn').addEventListener('click', async function () {
+            const emailInput = document.getElementById('newsletter-email');
+            const email = emailInput.value.trim();
+
+            if (!email) {
+                alert('Por favor, ingresa tu correo electrónico.');
+                return;
+            }
+
+            if (!emailInput.checkValidity()) {
+                alert('Por favor, ingresa un correo electrónico válido.');
+                return;
+            }
+
+            const button = this;
+            const originalText = button.textContent;
+            button.disabled = true;
+            button.textContent = 'Enviando...';
+
+            try {
+                const response = await fetch(
+                    'https://script.google.com/macros/s/AKfycbxLUTi7yCztaCJcC6j9m1K8C7JOOadfeK7AYNYZQMzsY6rqGTJlJezjiRhHlLdBHPtH/exec',
+                    {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            email: email,
+                            secret: 'gobedent-form',
+                            accept_data: true,
+                            accept_comunication: false
+                        })
+                    }
+                );
+
+                const result = await response.text();
+
+                if (response.ok && result === 'OK') {
+                    alert('¡Gracias! Te avisaremos cuando la tienda esté lista.');
+                    emailInput.value = '';
+                } else {
+                    throw new Error(result || 'Error en la respuesta del servidor');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Hubo un error al registrar tu correo. Por favor, intentalo de nuevo.');
+            } finally {
+                button.disabled = false;
+                button.textContent = originalText;
+            }
+        });
+
+        // Contact form handler
+        document.getElementById('contact-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('contact-name').value.trim();
+            const surname = document.getElementById('contact-surname').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const phone = document.getElementById('contact-phone').value.trim();
+            const company = document.getElementById('contact-company').value.trim();
+            const clinicLab = document.getElementById('contact-clinic-lab').value;
+            const message = document.getElementById('contact-message').value.trim();
+            const acceptData = document.getElementById('contact-accept-data').checked;
+            const acceptComunication = document.getElementById('contact-accept-comunication').checked;
+
+            if (!acceptData) {
+                alert('Debes aceptar el procesamiento de tus datos para continuar.');
+                return;
+            }
+
+            const submitButton = this.querySelector('.btn-submit');
+            const originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+
+            try {
+                const response = await fetch(
+                    'https://script.google.com/macros/s/AKfycbwZhxGzKX648_w5uQiZ8n94UZlyKL4a-fP54mapomG0iUUxnwgNryWfxessle7phPmTVQ/exec',
+                    {
+                        method: 'POST',
+                        body: new URLSearchParams({
+                            secret: 'gobedent-form-message',
+                            name: name,
+                            surname: surname,
+                            email: email,
+                            phone: phone,
+                            company: company,
+                            clinic_lab: clinicLab,
+                            message: message,
+                            accept_data: acceptData,
+                            accept_comunication: acceptComunication
+                        })
+                    }
+                );
+
+                const result = await response.text();
+
+                if (response.ok && result === 'OK') {
+                    alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+                    this.reset();
+                } else {
+                    throw new Error(result || 'Error en la respuesta del servidor');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Hubo un error al enviar tu mensaje. Por favor, intentalo de nuevo.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }
+        });
+    </script>
 </body>
 </html>
