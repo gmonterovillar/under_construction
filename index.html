@@ -20,8 +20,8 @@
             color: #1D1D1F;
             line-height: 1.6;
             background: #FFFFFF;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            /* -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale; */
         }
 
         .container {
@@ -411,6 +411,13 @@
             text-decoration: underline;
         }
 
+        .footer-content p {
+            margin-bottom: 0;
+            color: #FFFFFF;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
         .social-links {
             display: flex;
             gap: 16px;
@@ -482,17 +489,7 @@
             }
         }
 
-        /* Small tablets / large phones */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 5%;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
+        @media (max-width: 1000px) {
             .footer-content {
                 flex-direction: column;
                 gap: 16px;
@@ -502,6 +499,18 @@
             .footer-links {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+        }
+
+        /* Small tablets / large phones */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 5%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
 
             .call-section {
@@ -696,9 +705,9 @@
                     <p>GoBe Dent Components S.L. | Copyright 2026</p>
                 </div>
                 <div class="footer-links">
-                    <a href="privacidad.html">Politica de privacidad</a> |
-                    <!-- <a href="#">Politica de Cookies</a> | -->
-                    <a href="#">Legal</a>
+                    <a href="politica_de_privacidad.html">Política de Privacidad</a>|
+                    <a href="politica_de_cookies.html">Política de Cookies</a>|
+                    <a href="aviso_legal.html">Aviso Legal</a>
                 </div>
                 <div class="social-links">
                     <a href="https://api.whatsapp.com/send/?phone=34622359525&text=Hola%2C+me+gustaría+obtener+más+información&type=phone_number&app_absent=0" aria-label="WhatsApp">
